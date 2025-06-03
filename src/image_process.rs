@@ -66,7 +66,7 @@ fn cropping_image(config: &GridImageConfig, image: DynamicImage) -> RgbaImage {
 }
 
 fn composite_grid_image(config: &GridImageConfig, crop_images: &Vec<RgbaImage>) -> RgbaImage {
-    let rows = (crop_images.len() as u32 + config.columns) / config.columns;
+    let rows = (crop_images.len() as u32 + (config.columns - 1)) / config.columns;
 
     let mut grid_image = RgbaImage::from_pixel(
         config.cell_size * config.columns + (config.stroke * (config.columns + 1)),
@@ -76,8 +76,10 @@ fn composite_grid_image(config: &GridImageConfig, crop_images: &Vec<RgbaImage>) 
 
     for (i, img) in crop_images.iter().enumerate() {
         let index = i as u32;
-        let grid_x = ((index % config.columns) * (config.cell_size + config.stroke) + config.stroke) as i64;
-        let grid_y = ((index / config.columns) * (config.cell_size + config.stroke) + config.stroke) as i64;
+        let grid_x =
+            ((index % config.columns) * (config.cell_size + config.stroke) + config.stroke) as i64;
+        let grid_y =
+            ((index / config.columns) * (config.cell_size + config.stroke) + config.stroke) as i64;
         imageops::overlay(&mut grid_image, img, grid_x, grid_y);
     }
     grid_image
