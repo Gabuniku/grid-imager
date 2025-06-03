@@ -1,0 +1,16 @@
+[package]
+name = "grid-imager"
+version = "0.1.0"
+edition = "2024"
+authors = ["gabuniku"]
+
+[[bin]]
+name = "grid-imager-cli"
+path = "src/bin/grid-imager-cli.rs"
+
+[dependencies]
+clap = { version = "4.5.39", features = ["derive"] }
+env_logger = "0.11.8"
+image = "0.25.6"
+log = "0.4.27"
+rayon = "1.10.0"
