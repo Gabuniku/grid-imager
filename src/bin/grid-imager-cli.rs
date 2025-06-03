@@ -9,7 +9,7 @@ use std::process::exit;
 use log::debug;
 
 #[derive(Parser, Debug)]
-#[command(author, version = "0.1.0")]
+#[command(author, version)]
 struct Args {
     /// 読み込む画像のあるディレクトリ
     #[arg(short, long, value_name = "ImagesDirectory")]
