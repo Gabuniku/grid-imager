@@ -2,6 +2,13 @@
 
 複数の画像をグリッド状に配置するツールです．
 
+
+<img width="500" height="500" alt="test" src="https://github.com/user-attachments/assets/81fae207-4f36-4814-9d1c-347b42743177" />
+
+
+こんなのが作れます．
+
+
 ---
 
 ## 使い方
@@ -27,3 +34,11 @@
 | `-a` ,  `--alpha`     | `<alpha>`           | グリッド線のアルファ値     | `255`            |
 | `-h` ,  `--help`      |                     | ヘルプを表示          |                  |
 | `-V` ,  `--version`   |                     | バージョンを表示        |                  |
+
+## インストール
+[リリースページ](https://github.com/Gabuniku/grid-imager/releases)からビルド済みのバイナリをダウンロード.
+
+
+もしくはcargo環境ならば
+`cargo install --path .`
+でインストールできます．
